@@ -1,0 +1,14 @@
+yntax = "proto3";
+
+message AuthRequest {
+string serial_id = 1;
+bytes signature = 2;
+}
+
+message Challenge {
+bytes random_nonce = 1;
+}
+
+message ChallengeResponse {
+bytes signed_nonce = 1;
+}
