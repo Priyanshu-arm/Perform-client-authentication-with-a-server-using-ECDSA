@@ -12,7 +12,7 @@
 #include "ecdsa.h"
 #include "secp256k1.h"
 
-using boost::asio::ip::tcp;  // ✅ FIXED
+using boost::asio::ip::tcp;  
 
 uint8_t public_key[65] = {
     0x04, 0x3a, 0x0f, 0x29, 0x59, 0x98, 0xf3, 0x13, 0x3d, 0x89, 0xb1, 0x6b, 0x87, 0x19, 0x0e, 0x2c,
@@ -25,8 +25,8 @@ uint8_t public_key[65] = {
 int main() {
     try {
         boost::asio::io_context io_context;
-        tcp::acceptor acceptor(io_context, tcp::endpoint(tcp::v4(), 1234));  // ✅ FIXED
-        tcp::socket socket(io_context);  // ✅ FIXED
+        tcp::acceptor acceptor(io_context, tcp::endpoint(tcp::v4(), 1234)); 
+        tcp::socket socket(io_context);  
 
         std::cout << "[Server] Waiting for client on port 1234..." << std::endl;
         acceptor.accept(socket);
